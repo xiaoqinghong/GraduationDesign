@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>数据展示</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="css/jquery.datetimepicker.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        .tl-input{background: #dedede}
+
+        /* SELECT W/IMAGE */
+        select#selectTravelCity
+        {
+            width                    : 14em;
+            height                   : 3.2em;
+            padding                  : 0.2em 0.4em 0.2em 0.4em;
+            vertical-align           : middle;
+            border                   : 1px solid #94c1e7;
+            -moz-border-radius       : 0.2em;
+            -webkit-border-radius    : 0.2em;
+            border-radius            : 0.2em;
+            -webkit-appearance       : none;
+            -moz-appearance          : none;
+            appearance               : none;
+            background               : #ffffff;
+            font-family              : SimHei;
+            font-size                : 1.1em;
+            color                    : RGBA(102,102,102,0.7);
+            cursor                   : pointer;
+        }
+
+        /*SELECT W/DOWN-ARROW*/
+        select#selectPointOfInterest
+        {
+            width                    : 185pt;
+            height                   : 38px;
+            line-height              : 38px;
+            padding-right            : 20pt;
+            text-indent              : 4pt;
+            text-align               : left;
+            vertical-align           : middle;
+            border                   : 1px solid #94c1e7;
+            -moz-border-radius       : 6px;
+            -webkit-border-radius    : 6px;
+            border-radius            : 6px;
+            -webkit-appearance       : none;
+            -moz-appearance          : none;
+            appearance               : none;
+            font-family              : SimHei;
+            font-size                : 18pt;
+            font-weight              : 500;
+            color                    : RGBA(102,102,102,0.7);
+            cursor                   : pointer;
+            outline                  : none;
+        }
+
+
+        /*LABEL FOR SELECT*/
+        label#lblSelect{ position: relative; display: inline-block;}
+
+
+        /*DOWNWARD ARROW (25bc)*/
+        label#lblSelect::after
+        {
+            content                 : "\25bc";
+            position                : absolute;
+            top                     : 0;
+            right                   : 0;
+            bottom                  : 0;
+            width                   : 20pt;
+            line-height             : 38px;
+            vertical-align          : middle;
+            text-align              : center;
+            background              : #94c1e7;
+            color                   : #2984ce;
+            -moz-border-radius       : 0 6px 6px 0;
+            -webkit-border-radius    : 0 6px 6px 0;
+            border-radius           : 0 6px 6px 0;
+            pointer-events          : none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="main" style="margin-top: 20px;margin-bottom: 30px;margin-left: 20%">
+
+    <form class="form-inline">
+        <div class="form-group">
+            <label>请输入开始时间</label>
+            <input type="text" class="form-control addTime2" id="time1" placeholder="请输入开始时间">
+        </div>
+        <div class="form-group" style="margin: 0 20px">
+            <label>请输入结束时间</label>
+            <input type="text" class="form-control addTime2" id="time2" placeholder="请输入结束时间">
+        </div>
+
+        <!--<div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">原始
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">功能</a></li>
+                <li><a href="#">另一个功能</a></li>
+                <li><a href="#">其他</a></li>
+                <li class="divider"></li>
+                <li><a href="#">分离的链接</a></li>
+            </ul>
+        </div>-->
+        <label id="lblSelect">
+            <select id="selectPointOfInterest" title="Select points of interest nearby"  onchange="getCar()">
+                <option value="0">请选择</option>
+                <option value="1" onclick="getCar(1)">1</option>
+                <option value="2" onclick="getCar(2)">2</option>
+                <option value="3" onclick="getCar(3)">3</option>
+                <option value="4" onclick="getCar(4)">4</option>
+                <option value="5" onclick="getCar(5)">5</option>
+                <option value="6" onclick="getCar(6)">6</option>
+            </select>
+        </label>
+
+        <button type="button" class="btn btn-primary" style="margin: 0 20px" onclick="getMsg();">确定</button>
+    </form>
+
+    <!--<input class="addTime2   tl-input" type="text" readonly="true" placeholder="请输入开始时间">
+    <input class="addTime2 tl-input" type="text" readonly="true" placeholder="请输入结束时间">
+    <label id="lblSelect">
+        <select id="selectPointOfInterest" title="Select points of interest nearby">
+            <option value="0">请选择</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>
+    </label>-->
+
+</div>
+
+<div id="container" style="height: 80%"></div>
+
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+
+<script src="js/jquery.datetimepicker.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/main.js"></script>
+
+<script type="text/javascript">
+
+    var yOne = [];
+    var yTwo = [];
+    var xData = [];
+    var carId = 0;
+    var startTime = ``;
+    var endTime = ``;
+
+
+    $(function () {
+        //这里和后端通信，获取需要的数据结构
+        loadLog();//
+
+    });
+
+
+    function getCar(num){
+        //alert(document.getElementById("selectPointOfInterest").value);
+        let tempNum = document.getElementById("selectPointOfInterest").value;
+        carId = Number(tempNum);
+    }
+
+    /*日期转时间戳(单位秒)*/
+    function  date2Time(str){
+        return (new Date(str.replace(/-/g, '/')).getTime() / 1000).toFixed(0);
+    }
+
+
+
+
+    $('.addTime1').datetimepicker({
+        lang:"ch",
+        timepicker:false,
+        format:"Y-m-d"
+    });
+    $('.addTime2').datetimepicker({
+        lang:"ch",
+        timepicker:true,//可以选择具体的时间
+        format:"Y/m/d H:i" //日期格式
+    });
+
+    function getData() {
+        let time1 = $('.addTime1').val();
+        let time2 = $('.addTime2').val();
+    }
+
+    /*时间戳转日期*/
+    function time2Date(time, hasHour, str) {
+        if (time == 0) {
+            return ' '
+        }
+        let now = new Date(time * 1000);
+        let year = now.getFullYear();
+        let month = now.getMonth() + 1;
+        let date = now.getDate();
+        let hour = now.getHours();
+        let minute = now.getMinutes();
+        let second = now.getSeconds();
+        str ? '' : str = '-';
+        let dateStr = year + str + ((month + '').length == 1 ? '0' + month : month) + str + ((date + '').length == 1 ? '0' + date : date);
+        if (hasHour) {
+            dateStr += ' ' + ((hour + '').length == 1 ? '0' + hour : hour) + ':' + ((minute + '').length == 1 ? '0' + minute : minute) + ':' + ((second + '').length == 1 ? '0' + second : second);
+        }
+        return dateStr;
+    }
+
+    //确认按钮
+    function  getMsg() {
+        //获取参数：
+        startTime = $('#time1').val();
+        endTime = $('#time2').val();
+        loadLog();//获取数据
+
+    }
+
+
+    function loadLog() {
+        //开始时间
+        //let startTime = '1556028416';
+        //结束时间
+        //let endTime = '1556363576';
+
+        let sendData = {
+            car_id: carId,
+            start_time: date2Time(startTime),
+            end_time: date2Time(endTime),
+        };
+        //debugger;
+        $.ajax({
+            type: 'get',
+            url: 'http://www.gotit.top/api/car/get_data',
+            data: sendData,
+            dataType: 'json',
+            success: function (res) {
+                if (res && res.data.length > 0) {
+                    //请求成功
+                    let obj = res.data;
+                    for (let item of obj) {
+                        if (item.created) {//组装x轴
+                            let tempTime = time2Date(item.created, true, '-');
+                            xData.push(tempTime)//需要转成日期格式
+                        }
+                        if (item.h) {//组装y1轴
+                            yOne.push(item.h)//需要转成日期格式
+                        }
+                        if (item.t) {//组装y2轴
+                            yTwo.push(item.t)//需要转成日期格式
+                        }
+                    }
+                    console.log('x', xData);
+                    console.log('y1', yOne);
+                    console.log('y2', yTwo);
+                    var dom = document.getElementById("container");
+                    var myChart = echarts.init(dom);
+                    var app = {};
+                    option = null;
+                    option = {
+                        title: {
+                            text: '温湿度'
+                        },
+                        tooltip: {
+                            trigger: 'axis'
+                        },
+                        legend: {
+                            data: ['温度', '湿度']
+                        },
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        toolbox: {
+                            feature: {
+                                saveAsImage: {}
+                            }
+                        },
+                        xAxis: {
+                            type: 'category',
+                            boundaryGap: true,
+                            data: xData
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series: [
+                            {
+                                name: '湿度',
+                                type: 'line',
+                                stack: '湿度',
+                                data: yOne
+                            },
+                            {
+                                name: '温度',
+                                type: 'line',
+                                stack: '温度',
+                                data: yTwo
+                            }
+                        ]
+                    };
+                    ;
+                    if (option && typeof option === "object") {
+                        myChart.setOption(option, true);
+                    }
+                } else {
+                    alert('暂无对应数据');
+                    xData = [];
+                    yOne = [];
+                    yTwo = [];
+                    var dom = document.getElementById("container");
+                    var myChart = echarts.init(dom);
+                    var app = {};
+                    option = null;
+                    option = {
+                        title: {
+                            text: '温湿度'
+                        },
+                        tooltip: {
+                            trigger: 'axis'
+                        },
+                        legend: {
+                            data: ['温度', '湿度']
+                        },
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        toolbox: {
+                            feature: {
+                                saveAsImage: {}
+                            }
+                        },
+                        xAxis: {
+                            type: 'category',
+                            boundaryGap: true,
+                            data: xData
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series: [
+                            {
+                                name: '湿度',
+                                type: 'line',
+                                stack: '湿度',
+                                data: yOne
+                            },
+                            {
+                                name: '温度',
+                                type: 'line',
+                                stack: '温度',
+                                data: yTwo
+                            }
+                        ]
+                    };
+                    ;
+                    if (option && typeof option === "object") {
+                        myChart.setOption(option, true);
+                    }
+                   // console.log('x', xData);
+                   // console.log('y1', yOne);
+                    //console.log('y2', yTwo);
+                }
+            },
+            error: function () {
+                //alert("");
+            }
+        });
+    }
+</script>
+</body>
+
+</html>
