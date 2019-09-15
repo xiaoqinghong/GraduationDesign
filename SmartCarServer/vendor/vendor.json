@@ -1,0 +1,91 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "BhMowD2DIKSd9qq8Pzh7Y3mh2/w=",
+			"path": "github.com/gin-contrib/sse",
+			"revision": "5545eab6dad3bbbd6c5ae9186383c2a9d23c0dae",
+			"revisionTime": "2019-03-01T06:25:29Z"
+		},
+		{
+			"checksumSHA1": "3qRlAkjSfz0cGfrlaoSEqUtfV3k=",
+			"path": "github.com/gin-gonic/gin",
+			"revision": "ffcbe77b1e6222b4e0e97eb1920adc1813fb2224",
+			"revisionTime": "2019-04-06T13:48:33Z"
+		},
+		{
+			"checksumSHA1": "mEnHBy8g40Ozftnyp/SyfAI39M0=",
+			"path": "github.com/gin-gonic/gin/binding",
+			"revision": "ffcbe77b1e6222b4e0e97eb1920adc1813fb2224",
+			"revisionTime": "2019-04-06T13:48:33Z"
+		},
+		{
+			"checksumSHA1": "GAHho8qMLbDfGoD4w7SX7ZRT56U=",
+			"path": "github.com/gin-gonic/gin/internal/json",
+			"revision": "ffcbe77b1e6222b4e0e97eb1920adc1813fb2224",
+			"revisionTime": "2019-04-06T13:48:33Z"
+		},
+		{
+			"checksumSHA1": "kIr0QRAOL7dIG3WbUral3aTktYs=",
+			"path": "github.com/gin-gonic/gin/render",
+			"revision": "ffcbe77b1e6222b4e0e97eb1920adc1813fb2224",
+			"revisionTime": "2019-04-06T13:48:33Z"
+		},
+		{
+			"checksumSHA1": "/6lS1QAr69OHKZaNjFVo77JUyhI=",
+			"path": "github.com/go-sql-driver/mysql",
+			"revision": "578c4c8066964679ef44f45de2b6c7e811cc665e",
+			"revisionTime": "2019-04-10T03:04:54Z"
+		},
+		{
+			"checksumSHA1": "Wp97rIwFg54dNwuCeR9Vslaehtw=",
+			"path": "github.com/golang/protobuf/proto",
+			"revision": "e91709a02e0e8ff8b86b7aa913fdc9ae9498e825",
+			"revisionTime": "2019-04-09T05:09:43Z"
+		},
+		{
+			"checksumSHA1": "KA3swDZJamekBvzQJDSNlj1WdTY=",
+			"path": "github.com/jinzhu/gorm",
+			"revision": "efcabc8be3ab9cfb79b8318bd940586ab6bfa528",
+			"revisionTime": "2019-04-11T07:31:25Z"
+		},
+		{
+			"checksumSHA1": "mfb/EusMwfajCPq0lwLWM/pvqI4=",
+			"path": "github.com/jinzhu/inflection",
+			"revision": "04140366298a54a039076d798123ffa108fff46c",
+			"revisionTime": "2018-03-08T03:36:59Z"
+		},
+		{
+			"checksumSHA1": "A7CA8kdeDAQo6tsMv2kXK+Hm7/Y=",
+			"path": "github.com/mattn/go-isatty",
+			"revision": "c2a7a6ca930a4cd0bc33a3f298eb71960732a3a7",
+			"revisionTime": "2019-03-12T13:58:54Z"
+		},
+		{
+			"checksumSHA1": "P7JfxKGFVTrWAsM6kP24F175PZc=",
+			"path": "github.com/ugorji/go/codec",
+			"revision": "2adff0894ba3bc2eeb9f9aea45fefd49802e1a13",
+			"revisionTime": "2019-04-08T19:08:48Z"
+		},
+		{
+			"checksumSHA1": "x3hQOfqGci1FT8iUMVmKrda1U3o=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "16da32be82c5df9a338c27758247c0b7b0bd8fea",
+			"revisionTime": "2019-04-14T19:23:05Z"
+		},
+		{
+			"checksumSHA1": "q190bL03wQok3wVwYmMub2XhOiU=",
+			"path": "gopkg.in/go-playground/validator.v8",
+			"revision": "5f1438d3fca68893a817e4a66806cea46a9e4ebf",
+			"revisionTime": "2017-07-30T05:02:35Z"
+		},
+		{
+			"checksumSHA1": "oNqPrS2edE8peI3ah2INe379k8E=",
+			"path": "gopkg.in/yaml.v2",
+			"revision": "51d6538a90f86fe93ac480b35f37b2be17fef232",
+			"revisionTime": "2018-11-15T11:05:04Z"
+		}
+	],
+	"rootPath": "github.com/xiaoqinghong/SmartCarServer"
+}

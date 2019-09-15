@@ -1,0 +1,8 @@
+.idea
+.vscode
+.Ds_Store
+SmartCarServer
+SmartCarServer.exe
+main
+main.exe
+*.exe

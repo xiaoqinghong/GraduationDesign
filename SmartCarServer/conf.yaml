@@ -1,0 +1,9 @@
+app:
+  debug: false
+  api_port: :8080
+mysql:
+  user: root
+  password: 0314
+  host: 127.0.0.1
+  port: 3306
+  db: smart_car
